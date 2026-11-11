@@ -23,17 +23,17 @@ header {
   text-align: center;
 }
 
-header h1 { margin: 0; font-size: 36px; }
+header h1 { margin: 0; font-size: 38px; }
 
 main {
   max-width: 430px;
-  margin: 30px auto;
-  padding: 15px;
+  margin: 35px auto;
+  padding: 20px;
 }
 
 .card {
   background: white;
-  padding: 24px;
+  padding: 25px;
   border-radius: 16px;
   box-shadow: 0 3px 15px #0001;
 }
@@ -43,15 +43,12 @@ h2 { text-align: center; }
 input, select, button {
   width: 100%;
   padding: 14px;
-  margin: 9px 0;
+  margin: 10px 0;
   border-radius: 9px;
   font-size: 16px;
 }
 
-input, select {
-  border: 1px solid #ccc;
-  background: white;
-}
+input, select { border: 1px solid #ccc; }
 
 button {
   background: #087b45;
@@ -61,7 +58,9 @@ button {
   cursor: pointer;
 }
 
-.secondary { background: #64746a; }
+.secondary {
+  background: #64746a;
+}
 
 .note {
   text-align: center;
@@ -70,7 +69,6 @@ button {
 }
 
 .hidden { display: none; }
-
 </style>
 </head>
 
@@ -83,16 +81,16 @@ button {
 
 <main>
 
-<!-- LOGIN -->
+<!-- LOGIN PAGE -->
 <div class="card" id="loginPage">
 
 <h2>Employee Login</h2>
 
-<input id="loginUsername"
-type="text" placeholder="Username">
+<input type="text" id="loginUsername"
+placeholder="Username">
 
-<input id="loginPassword"
-type="password" placeholder="Password">
+<input type="password" id="loginPassword"
+placeholder="Password">
 
 <button onclick="login()">Login</button>
 
@@ -108,25 +106,22 @@ Account requires Admin Approval.
 
 </div>
 
-<!-- REGISTRATION -->
+<!-- REGISTRATION PAGE -->
 <div class="card hidden" id="registerPage">
 
 <h2>Employee Registration</h2>
 
-<input id="empName"
-type="text" placeholder="Employee Full Name">
+<input type="text" id="empName"
+placeholder="Employee Full Name">
 
-<input id="empID"
-type="text" placeholder="Employee ID">
+<input type="text" id="empUsername"
+placeholder="Create Username">
 
-<input id="empUsername"
-type="text" placeholder="Create Username">
+<input type="password" id="empPassword"
+placeholder="Create Password">
 
-<input id="empPassword"
-type="password" placeholder="Create Password">
-
-<input id="empMobile"
-type="tel" placeholder="Mobile Number">
+<input type="tel" id="empMobile"
+placeholder="Mobile Number">
 
 <select id="empBranch">
 <option value="">Select Branch</option>
@@ -135,28 +130,6 @@ type="tel" placeholder="Mobile Number">
 <option>Pottuvil</option>
 <option>Apple HuT</option>
 <option>Talk Town</option>
-<option>Distribution</option>
-</select>
-
-<select id="empDepartment">
-<option value="">Select Department</option>
-<option>Sales</option>
-<option>Service</option>
-<option>Accounts</option>
-<option>Stock</option>
-<option>Management</option>
-<option>Other</option>
-</select>
-
-<select id="empDesignation">
-<option value="">Select Designation</option>
-<option>Manager</option>
-<option>Supervisor</option>
-<option>Sales Executive</option>
-<option>Cashier</option>
-<option>Technician</option>
-<option>Store Keeper</option>
-<option>Other</option>
 </select>
 
 <button onclick="registerEmployee()">
@@ -169,7 +142,7 @@ Back to Login
 </button>
 
 <p class="note">
-Registration requires Main Admin Approval.
+Your account requires Admin Approval.
 </p>
 
 </div>
@@ -196,40 +169,28 @@ function showLogin() {
 
 function registerEmployee() {
 
-  const fields = [
-    "empName",
-    "empID",
-    "empUsername",
-    "empPassword",
-    "empMobile",
-    "empBranch",
-    "empDepartment",
-    "empDesignation"
-  ];
+  const name = document.getElementById("empName").value.trim();
+  const username = document.getElementById("empUsername").value.trim();
+  const password = document.getElementById("empPassword").value;
+  const mobile = document.getElementById("empMobile").value.trim();
+  const branch = document.getElementById("empBranch").value;
 
-  for (const field of fields) {
-    if (!document.getElementById(field).value.trim()) {
-      alert("Please fill all details.");
-      return;
-    }
+  if (!name || !username || !password || !mobile || !branch) {
+    alert("Please fill all details.");
+    return;
   }
-
-  const password =
-    document.getElementById("empPassword").value;
 
   if (password.length < 6) {
     alert("Password must be at least 6 characters.");
     return;
   }
 
-  alert(
-    "Registration form completed!\n\n" +
-    "Database connection is required to save your application."
-  );
+  alert("Registration form completed! Database connection is required to submit your application.");
+
 }
 
 function login() {
-  alert("Login system requires Firebase connection.");
+  alert("Login system will be connected with Firebase.");
 }
 
 </script>
