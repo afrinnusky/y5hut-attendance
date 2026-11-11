@@ -1,0 +1,78 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>y5 HuT Attendance</title>
+<style>
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f1f5f2;
+  color: #17251c;
+}
+header {
+  background: #075b35;
+  color: white;
+  padding: 25px 20px;
+  text-align: center;
+}
+header h1 { margin: 0; }
+main {
+  max-width: 430px;
+  margin: 35px auto;
+  padding: 20px;
+}
+.card {
+  background: white;
+  padding: 25px;
+  border-radius: 16px;
+  box-shadow: 0 3px 15px #0001;
+}
+h2 { text-align: center; }
+input, button {
+  width: 100%;
+  padding: 14px;
+  margin: 10px 0;
+  border-radius: 9px;
+  font-size: 16px;
+}
+input { border: 1px solid #ccc; }
+button {
+  background: #087b45;
+  color: white;
+  border: 0;
+  font-weight: bold;
+}
+.note {
+  text-align: center;
+  color: #65736a;
+  font-size: 13px;
+}
+</style>
+</head>
+<body>
+<header>
+  <h1>y5 HuT</h1>
+  <p>Staff Attendance Management</p>
+</header>
+
+<main>
+  <div class="card">
+    <h2>Employee Login</h2>
+    <input type="text" placeholder="Username">
+    <input type="password" placeholder="Password">
+    <button onclick="alert('Login system will be connected with Firebase in the next step.')">
+      Login
+    </button>
+    <p class="note">New Employee?</p>
+    <button onclick="alert('Employee registration will be added next.')">
+      Create Account
+    </button>
+    <p class="note">Account requires Admin Approval.</p>
+  </div>
+</main>
+</body>
+</html>
